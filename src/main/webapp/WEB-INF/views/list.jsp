@@ -15,8 +15,8 @@
 </form>
 
   <ul>
-    <c:forEach items="${todoList}" var="todo">
-      <li>${todo}</li>
+    <c:forEach items="${silniaList}" var="silnia">
+      <li>${silnia}</li>
     </c:forEach>
   </ul>
 

@@ -6,8 +6,6 @@ import java.util.List;
 
 @Service
 public class SilniaService {
-    int sln;
-    Integer n = 1;
     private ArrayList<Integer> output = new ArrayList<Integer>();
 
     public List<Integer> getAll() {

@@ -11,24 +11,24 @@ import java.util.List;
 
 @Controller
 public class SilniaController {
-    private SilniaService todoService;
+    private SilniaService silniaService;
 
     @Autowired
-    public SilniaController(SilniaService todoService) {
-        this.todoService = todoService;
+    public SilniaController(SilniaService silniaService) {
+        this.silniaService = silniaService;
     }
 
     @RequestMapping(value = "index.s", method = RequestMethod.GET)
     public ModelAndView printAll() {
-        List<Integer> all = todoService.getAll();
+        List<Integer> all = silniaService.getAll();
         ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
-        mav.addObject("todoList", all);
+        mav.addObject("silniaList", all);
         return mav;
     }
 
     @RequestMapping(value = "index.s", method = RequestMethod.POST)
     public ModelAndView licz(@RequestParam int n) {
-        todoService.licz(n);
+        silniaService.licz(n);
         return new ModelAndView("redirect:index.s");
     }
 
