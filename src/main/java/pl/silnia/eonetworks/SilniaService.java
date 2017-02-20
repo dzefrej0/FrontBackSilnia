@@ -8,10 +8,10 @@ import java.util.List;
 public class SilniaService {
     int sln;
     Integer n = 1;
-    private ArrayList<Integer> todos = new ArrayList<Integer>();
+    private ArrayList<Integer> output = new ArrayList<Integer>();
 
     public List<Integer> getAll() {
-        return new ArrayList<Integer>(todos);
+        return new ArrayList<Integer>(output);
     }
 
 
@@ -21,7 +21,7 @@ public class SilniaService {
 
         for (int i = 2; i <= n; i++)
             silnia = silnia * i;
-        todos.add(silnia);
+        output.add(silnia);
         return silnia;
     }
 }

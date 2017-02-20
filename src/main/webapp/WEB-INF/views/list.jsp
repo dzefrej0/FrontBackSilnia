@@ -13,12 +13,12 @@
   <input type="reset" value="Wyczysc"/>
 
 </form>
-<c:if test="${not empty todoList}">
+
   <ul>
     <c:forEach items="${todoList}" var="todo">
       <li>${todo}</li>
     </c:forEach>
   </ul>
-</c:if>
+
 </body>
 </html>
