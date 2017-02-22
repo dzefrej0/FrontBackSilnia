@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>ObliczSilnie</title>
+    <meta http-equv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+</head>
+<body>
+
+<form method="POST" accept-charset="utf-8">
+
+    <input type="number" name="n" />
+    <input type="submit" value="Wyslij"/>
+    <input type="reset" value="Wyczysc"/>
+    <input type="reset" value="Wyczysc"/>
+
+</form>
+
+<ul>
+<tr th:each="${silniaList}"></tr>
+    <c:forEach items="${silniaList}" var="silnia">
+        <li>${silnia}</li>
+    </c:forEach>
+</ul>
+
+</body>
+</html>

@@ -11,6 +11,11 @@ import java.util.List;
 
 @Controller
 public class SilniaController {
+
+    @RequestMapping(value = "index.s")
+    String index(){
+        return "index";
+    }
     private SilniaService silniaService;
 
     @Autowired
@@ -21,7 +26,7 @@ public class SilniaController {
     @RequestMapping(value = "index.s", method = RequestMethod.GET)
     public ModelAndView printAll() {
         List<Integer> all = silniaService.getAll();
-        ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
+        ModelAndView mav = new ModelAndView("/WEB-INF/views/index1.html");
         mav.addObject("silniaList", all);
         return mav;
     }
