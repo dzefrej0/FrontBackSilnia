@@ -7,6 +7,12 @@
   <meta charset="utf-8">
 </head>
 <body>
+
+<select>
+    <option>choose iterating method for counting silnia</option>
+    <option>choose recursion method for counting silnia</option>
+
+</select>
 <form method="POST" accept-charset="utf-8">
 
   <input type="number" name="n" />
