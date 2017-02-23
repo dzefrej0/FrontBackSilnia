@@ -38,9 +38,13 @@ public class SilniaController {
     }
 
     @RequestMapping(value = "index.s", method = RequestMethod.POST)
-    public ModelAndView licz(@RequestParam int n) {
-        silniaService.licz(n);
+    public ModelAndView silnia(@RequestParam int n) {
+        silniaService.silnia(n);
         return new ModelAndView("redirect:index.s");
     }
-
+//    @RequestMapping(value = "index.s", method = RequestMethod.POST)
+//    public ModelAndView licz(@RequestParam int n) {
+//        silniaService.licz(n);
+//        return new ModelAndView("redirect:index.s");
+//    }
 }

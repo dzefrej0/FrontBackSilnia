@@ -6,6 +6,8 @@ import java.util.List;
 
 @Service
 public class SilniaService {
+
+    int c;
     private ArrayList<Integer> output = new ArrayList<Integer>();
 
     public List<Integer> getAll() {
@@ -13,7 +15,7 @@ public class SilniaService {
     }
 
 
-    public int licz(Integer n) {                         //POST
+    public int liczIteracja(Integer n) {                         //POST
 
         int silnia = 1;
 
@@ -22,4 +24,29 @@ public class SilniaService {
         output.add(silnia);
         return silnia;
     }
-}
+
+    public int silnia(int n)
+
+    {
+
+
+        if (n == 0){
+
+
+            return 1;
+        }
+
+        else{
+        c = (n * silnia(n - 1));
+            output.add(c);
+
+            return c;
+
+    }}
+
+        }
+
+
+
+
+
