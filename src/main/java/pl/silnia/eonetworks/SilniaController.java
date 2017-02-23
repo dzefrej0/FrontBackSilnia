@@ -32,7 +32,7 @@ public class SilniaController {
     @RequestMapping(value = "index.s", method = RequestMethod.GET)
     public ModelAndView printAll() {
         List<Integer> all = silniaService.getAll();
-        ModelAndView mav = new ModelAndView("/WEB-INF/views/index1.html");
+        ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
         mav.addObject("silniaList", all);
         return mav;
     }

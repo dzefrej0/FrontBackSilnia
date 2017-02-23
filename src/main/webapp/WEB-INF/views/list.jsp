@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
+<meta http-equv="Content-Type" content="text/html; charset=UTF-8"/>
 <html>
 <head>
   <title>obliczanie silni</title>
@@ -14,11 +15,11 @@
 
 </form>
 
-  <ul>
-    <c:forEach items="${silniaList}" var="silnia">
-      <li>${silnia}</li>
-    </c:forEach>
-  </ul>
+  <tr>
+    <th:each items="${silniaList}" >
+      <th:li>${silniaList}</th:li>
+  </th:each>
+  </tr>
 
 </body>
 </html>

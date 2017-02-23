@@ -7,28 +7,32 @@
     <link rel="stylesheet" type="text/css" media="all"
           href="../../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
 </head>
+<textarea>chuj1</textarea>
 <body>
 
-<form method="POST" accept-charset="utf-8">
-    <select>
-        <option value="use iteration method">use iteration method</option>
-        <option value="use recursion method ">use recursion method</option>
+<select>
+    <option>1</option>
+    <option>2</option>
+</select>
 
-    </select>
-    <input type="checkbox" value="Wyslij"/>
+<form method="POST" accept-charset="utf-8">
+
     <input type="number" name="n" />
     <input type="submit" value="Wyslij"/>
     <input type="reset" value="Wyczysc"/>
-    <input type="reset" value="Wyczysc"/>
+
+
+    <p th:each="silniaList : ${silniaList}"
+       th:text="${silnia}"></p>
 
 </form>
 
 <ul>
-<tr th:each="${silniaList}"></tr>
     <c:forEach items="${silniaList}" var="silnia">
         <li>${silnia}</li>
     </c:forEach>
 </ul>
+
 
 </body>
 </html>
