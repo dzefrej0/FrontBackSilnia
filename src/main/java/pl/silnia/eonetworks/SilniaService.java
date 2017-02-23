@@ -1,13 +1,17 @@
 package pl.silnia.eonetworks;
 
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class SilniaService {
-
+int m;
     int c;
+    private List<Integer> output1 = new ArrayList<Integer>();
+
+
     private ArrayList<Integer> output = new ArrayList<Integer>();
 
     public List<Integer> getAll() {
@@ -25,26 +29,21 @@ public class SilniaService {
         return silnia;
     }
 
-    public int silnia(int n)
+    public int silnia(int n) {
 
-    {
+        System.out.println();
+        if (n == 0) {return 1;}
 
-
-        if (n == 0){
-
-
-            return 1;
+            else {
+            c = (n * silnia(n - 1));
+            output1.add(c);
+            m = output1.get(output1.size() - 1);
+            output.add(m);
         }
-
-        else{
-        c = (n * silnia(n - 1));
-            output.add(c);
-
             return c;
 
-    }}
-
-        }
+    }
+}
 
 
 
