@@ -30,8 +30,6 @@ int m;
     }
 
     public int silnia(int n) {
-
-        System.out.println();
         if (n == 0) {return 1;}
 
             else {
