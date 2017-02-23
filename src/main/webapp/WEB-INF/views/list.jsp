@@ -8,11 +8,12 @@
 </head>
 <body>
 
-<select>
-    <option>choose iterating method for counting silnia</option>
-    <option>choose recursion method for counting silnia</option>
+<select onchange="window.location.href=this.value">
+    <option value="http://localhost:8080/recursion.s">choose recursion method for counting silnia</option>
+    <option value ="http://localhost:8080/iterating.s"> choose iterating method for counting silnia</option>
 
 </select>
+
 <form method="POST" accept-charset="utf-8">
 
   <input type="number" name="n" />
