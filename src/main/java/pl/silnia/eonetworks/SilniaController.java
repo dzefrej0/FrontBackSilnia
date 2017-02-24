@@ -12,6 +12,7 @@ import org.thymeleaf.context.WebContext;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.math.BigInteger;
 import java.util.List;
 
 @Controller
@@ -31,7 +32,7 @@ public class SilniaController {
 
     @RequestMapping(value = "iterating.s", method = RequestMethod.GET)
     public ModelAndView printAll() {
-        List<Integer> all = silniaService.getAll();
+        List<BigInteger> all = silniaService.getAll();
         ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
         mav.addObject("silniaList", all);
         return mav;
@@ -39,7 +40,7 @@ public class SilniaController {
 
     @RequestMapping(value = "recursion.s", method = RequestMethod.GET)
     public ModelAndView printAll1() {
-        List<Integer> all = silniaService.getAll();
+        List<BigInteger> all = silniaService.getAll();
         ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
         mav.addObject("silniaList", all);
         return mav;
@@ -47,8 +48,8 @@ public class SilniaController {
 
 
     @RequestMapping(value = "recursion.s", method = RequestMethod.POST)
-    public ModelAndView silnia(@RequestParam int n) {
-        silniaService.silnia(n);
+    public ModelAndView silnia1(@RequestParam int n) {
+        silniaService.silnia1(n);
         return new ModelAndView("redirect:recursion.s");
     }
 

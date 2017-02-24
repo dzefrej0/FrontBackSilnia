@@ -4,41 +4,71 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.math.BigInteger;
 @Service
 public class SilniaService {
-int m;
-    int c;
-    private List<Integer> output1 = new ArrayList<Integer>();
+    BigInteger m;
+    BigInteger c;
+    BigInteger z;
+    BigInteger k = BigInteger.ONE;
 
+    private List<BigInteger> output1 = new ArrayList<BigInteger>();
 
-    private ArrayList<Integer> output = new ArrayList<Integer>();
+    private ArrayList<Integer> outputInt = new ArrayList<Integer>();
 
-    public List<Integer> getAll() {
-        return new ArrayList<Integer>(output);
+    private ArrayList<BigInteger> output = new ArrayList<BigInteger>();
+
+    public List<BigInteger> getAll() {
+        return new ArrayList<BigInteger>(output);
     }
 
 
-    public int liczIteracja(Integer n) {                         //POST
+    public BigInteger liczIteracja(Integer n) {                         //POST
 
-        int silnia = 1;
+        BigInteger silnia = BigInteger.ONE;
 
         for (int i = 2; i <= n; i++)
-            silnia = silnia * i;
+            silnia = silnia.multiply(BigInteger.valueOf(i));
         output.add(silnia);
         return silnia;
     }
 
-    public int silnia(int n) {
-        if (n == 0) {return 1;}
+//    public BigInteger silnia(int n) {
+//        System.out.println(k);
+//        if (n == 0) {return k;}
+//
+//        else {
+//            c = (silnia(n).multiply(BigInteger.valueOf(n)  ).multiply  (BigInteger.valueOf(n - 1)) )   ;
+//
+//            output.add(c);
+//            m = output1.get(output1.size() - 1);
+//            output.add(m);
+//        }
+//        return c;
+//    }
 
-            else {
-            c = (n * silnia(n - 1));
-            output1.add(c);
-            m = output1.get(output1.size() - 1);
-            output.add(m);
+
+    public BigInteger silnia1(int n) {
+        BigInteger factorial = BigInteger.ONE;
+
+        BigInteger factz = BigInteger.valueOf(n);
+        output.add(c);
+        System.out.println(output);
+        if (n == 0) {
+            return factorial;
+
+        } else {
+
+            c = factz.multiply(silnia1(n - 1));
+            return factz.multiply(silnia1(n - 1));
         }
-            return c;
 
+
+
+    }
+
+    public static void main(String[] args) {
+        SilniaService lol = new SilniaService();
+        lol.silnia1(5);
     }
 }
