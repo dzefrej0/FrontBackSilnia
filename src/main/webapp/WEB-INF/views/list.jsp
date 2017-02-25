@@ -1,23 +1,29 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <meta http-equv="Content-Type" content="text/html; charset=UTF-8"/>
 <html>
 <head>
   <title>obliczanie silni</title>
   <meta charset="utf-8">
+  <script type="text/javascript">
+      function mojsubmit(){
+          this.document.getElementById("form").action = this.document.getElementById("selectAction").value;
+          return true;
+      }
+  </script>
 </head>
 <body>
 
-<select onchange="window.location.href=this.value">
-    <option value="http://localhost:8080/recursion.s">choose recursion method for counting silnia</option>
-    <option value ="http://localhost:8080/iterating.s"> choose iterating method for counting silnia</option>
 
-</select>
+<form id="form" method="POST" accept-charset="utf-8" action="/recursion.s" onsubmit="return mojsubmit()">
 
-<form method="POST" accept-charset="utf-8">
+  <select id="selectAction">
+    <option value="/recursion.s">choose recursion method for counting silnia</option>
+    <option value ="/iterating.s">choose iterating method for counting silnia</option>
+  </select>
 
   <input type="number" name="n" />
-  <input type="submit" value="Wyslij"/>
+  <input type="submit" />
   <input type="reset" value="Wyczysc"/>
 
 </form>

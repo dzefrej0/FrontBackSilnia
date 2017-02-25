@@ -26,49 +26,30 @@ public class SilniaService {
     public BigInteger liczIteracja(Integer n) {                         //POST
 
         BigInteger silnia = BigInteger.ONE;
-
         for (int i = 2; i <= n; i++)
             silnia = silnia.multiply(BigInteger.valueOf(i));
         output.add(silnia);
         return silnia;
     }
 
-//    public BigInteger silnia(int n) {
-//        System.out.println(k);
-//        if (n == 0) {return k;}
-//
-//        else {
-//            c = (silnia(n).multiply(BigInteger.valueOf(n)  ).multiply  (BigInteger.valueOf(n - 1)) )   ;
-//
-//            output.add(c);
-//            m = output1.get(output1.size() - 1);
-//            output.add(m);
-//        }
-//        return c;
-//    }
-
-
     public BigInteger silnia1(int n) {
         BigInteger factorial = BigInteger.ONE;
-
         BigInteger factz = BigInteger.valueOf(n);
-        output.add(c);
-        System.out.println(output);
         if (n == 0) {
             return factorial;
-
         } else {
-
-            c = factz.multiply(silnia1(n - 1));
             return factz.multiply(silnia1(n - 1));
         }
-
-
-
     }
+    public BigInteger obliczSilniaRekurencja(int n){
+
+output.add(silnia1(n));
+        return silnia1(n);
+    }
+
 
     public static void main(String[] args) {
         SilniaService lol = new SilniaService();
-        lol.silnia1(5);
+        System.out.println(lol.silnia1(6));
     }
 }

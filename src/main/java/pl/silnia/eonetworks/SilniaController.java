@@ -30,34 +30,33 @@ public class SilniaController {
         this.silniaService = silniaService;
     }
 
-    @RequestMapping(value = "iterating.s", method = RequestMethod.GET)
+    @RequestMapping(value = "silnia.s", method = RequestMethod.GET)
     public ModelAndView printAll() {
         List<BigInteger> all = silniaService.getAll();
         ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
         mav.addObject("silniaList", all);
         return mav;
     }
-
-    @RequestMapping(value = "recursion.s", method = RequestMethod.GET)
-    public ModelAndView printAll1() {
-        List<BigInteger> all = silniaService.getAll();
-        ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
-        mav.addObject("silniaList", all);
-        return mav;
-    }
-
-
-    @RequestMapping(value = "recursion.s", method = RequestMethod.POST)
-    public ModelAndView silnia1(@RequestParam int n) {
-        silniaService.silnia1(n);
-        return new ModelAndView("redirect:recursion.s");
-    }
-
-
-
     @RequestMapping(value = "iterating.s", method = RequestMethod.POST)
     public ModelAndView liczIteracja(@RequestParam int n) {
         silniaService.liczIteracja(n);
-        return new ModelAndView("redirect:iterating.s");
+        return new ModelAndView("redirect:silnia.s");
     }
+
+//    @RequestMapping(value = "recursion.s", method = RequestMethod.GET)
+//    public ModelAndView printAll1() {
+//        List<BigInteger> all = silniaService.getAll();
+//        ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
+//        mav.addObject("silniaList", all);
+//        return mav;
+//    }
+    @RequestMapping(value = "recursion.s", method = RequestMethod.POST)
+    public ModelAndView obliczSilniaRekurencja(@RequestParam int n) {
+        silniaService.obliczSilniaRekurencja(n);
+        return new ModelAndView("redirect:silnia.s");
+    }
+
+
+
+
 }
