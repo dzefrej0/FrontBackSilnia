@@ -1,6 +1,9 @@
 
 <!DOCTYPE html>
+<%@ page isErrorPage="true" errorPage="error.jsp" %>
+
 <meta http-equv="Content-Type" content="text/html; charset=UTF-8"/>
+
 <html>
 <head>
   <title>obliczanie silni</title>
@@ -28,7 +31,8 @@
 
 </form>
 
-  <tr>
+
+<tr>
     <th:each items="${silniaList}" >
       <th:li>${silniaList}</th:li>
   </th:each>

@@ -50,6 +50,7 @@ output.add(silnia1(n));
 
     public static void main(String[] args) {
         SilniaService lol = new SilniaService();
-        System.out.println(lol.silnia1(6));
+      //  System.out.println(lol.silnia1(20000));
+        System.out.println(lol.liczIteracja(100000));
     }
 }
