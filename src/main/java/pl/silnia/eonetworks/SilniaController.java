@@ -30,6 +30,10 @@ public class SilniaController {
         this.silniaService = silniaService;
     }
 
+//
+//    @RequestMapping(value = "silnia.s", method = RequestMethod.GET))
+//    public
+
     @RequestMapping(value = "silnia.s", method = RequestMethod.GET)
     public ModelAndView printAll() {
         List<BigInteger> all = silniaService.getAll();
@@ -43,16 +47,15 @@ public class SilniaController {
         return new ModelAndView("redirect:silnia.s");
     }
 
-//    @RequestMapping(value = "recursion.s", method = RequestMethod.GET)
-//    public ModelAndView printAll1() {
-//        List<BigInteger> all = silniaService.getAll();
-//        ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
-//        mav.addObject("silniaList", all);
-//        return mav;
-//    }
+
     @RequestMapping(value = "recursion.s", method = RequestMethod.POST)
-    public ModelAndView obliczSilniaRekurencja(@RequestParam int n) {
+    public ModelAndView obliczSilniaRekurencja(@RequestParam int n)
+    {
         silniaService.obliczSilniaRekurencja(n);
+        if (n> 12000){
+
+            throw new ArithmeticException("maxymalna wartość dla metody rkurencyjnej to 12000");
+        }
         return new ModelAndView("redirect:silnia.s");
     }
 

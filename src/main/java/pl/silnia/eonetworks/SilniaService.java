@@ -35,6 +35,10 @@ public class SilniaService {
     public BigInteger silnia1(int n) {
         BigInteger factorial = BigInteger.ONE;
         BigInteger factz = BigInteger.valueOf(n);
+
+        if(n>12000)
+            throw new ArithmeticException("Nie    0");
+        else
         if (n == 0) {
             return factorial;
         } else {
@@ -48,9 +52,10 @@ output.add(silnia1(n));
     }
 
 
-    public static void main(String[] args) {
-        SilniaService lol = new SilniaService();
-      //  System.out.println(lol.silnia1(20000));
-        System.out.println(lol.liczIteracja(100000));
-    }
+//    public static void main(String[] args) {
+//        SilniaController olo = new SilniaController();
+//        SilniaService lol = new SilniaService();
+//        System.out.println(lol.silnia1(20000));
+//
+//    }
 }
