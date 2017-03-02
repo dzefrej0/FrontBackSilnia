@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="EoNetworksSilnia:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="todo.war">
+      <element id="artifact" artifact-name="EoNetworksSilnia:war exploded" />
+    </root>
+  </artifact>
+</component>
