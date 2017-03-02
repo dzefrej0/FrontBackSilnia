@@ -12,6 +12,7 @@ import org.thymeleaf.context.WebContext;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.math.BigInteger;
 import java.util.List;
 
 @Controller
@@ -29,34 +30,36 @@ public class SilniaController {
         this.silniaService = silniaService;
     }
 
-    @RequestMapping(value = "iterating.s", method = RequestMethod.GET)
+//
+//    @RequestMapping(value = "silnia.s", method = RequestMethod.GET))
+//    public
+
+    @RequestMapping(value = "silnia.s", method = RequestMethod.GET)
     public ModelAndView printAll() {
-        List<Integer> all = silniaService.getAll();
+        List<BigInteger> all = silniaService.getAll();
         ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
         mav.addObject("silniaList", all);
         return mav;
     }
-
-    @RequestMapping(value = "recursion.s", method = RequestMethod.GET)
-    public ModelAndView printAll1() {
-        List<Integer> all = silniaService.getAll();
-        ModelAndView mav = new ModelAndView("/WEB-INF/views/list.jsp");
-        mav.addObject("silniaList", all);
-        return mav;
+    @RequestMapping(value = "iterating.s", method = RequestMethod.POST)
+    public ModelAndView liczIteracja(@RequestParam int n) {
+        silniaService.liczIteracja(n);
+        return new ModelAndView("redirect:silnia.s");
     }
 
 
     @RequestMapping(value = "recursion.s", method = RequestMethod.POST)
-    public ModelAndView silnia(@RequestParam int n) {
-        silniaService.silnia(n);
-        return new ModelAndView("redirect:recursion.s");
+    public ModelAndView obliczSilniaRekurencja(@RequestParam int n)
+    {
+        silniaService.obliczSilniaRekurencja(n);
+        if (n> 12000){
+
+            throw new ArithmeticException("maxymalna wartość dla metody rkurencyjnej to 12000");
+        }
+        return new ModelAndView("redirect:silnia.s");
     }
 
 
 
-    @RequestMapping(value = "iterating.s", method = RequestMethod.POST)
-    public ModelAndView liczIteracja(@RequestParam int n) {
-        silniaService.liczIteracja(n);
-        return new ModelAndView("redirect:iterating.s");
-    }
+
 }
