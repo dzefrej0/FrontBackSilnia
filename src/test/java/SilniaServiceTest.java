@@ -12,27 +12,17 @@ import java.math.BigInteger;
 public class SilniaServiceTest {
 SilniaService silniaService = new SilniaService();
 
-
-
-
     @Test
     public void ShouldReturnRightNumberRecursion()throws Exception{
-        int a = 4;
-
-
+        int a = 12;
         BigInteger silnia = silniaService.obliczSilniaRekurencja(a);
-    assertEquals(silnia.intValue(),24);
+    assertEquals(silnia.intValue(),479001600);
 
     }
-
-
     @Test
     public void shouldReturnRightNumberIterating()throws Exception{
 
-        BigInteger silnia1 = silniaService.liczIteracja(5);
-        assertEquals(silnia1.intValue(),120);
-
-
-
+        BigInteger silnia1 = silniaService.liczIteracja(12);
+        assertEquals(silnia1.intValue(),479001600);
     }
 }
