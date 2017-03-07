@@ -35,23 +35,21 @@
     <option value="/recursion.s">choose recursion method for counting silnia</option>
     <option value ="/iterating.s">choose iterating method for counting silnia</option>
   </select>
-  <%
 
-
-
-    int a;
-  %>
 
   <input type="number" name="n" />
-  <input type="submit" />
+    <input type="submit" value="wy?lij zapytanie" var="btn1"/>
+
   <input type="reset" value="Wyczysc"/>
+  </form>
+
+
+
 
 
 
   <tr>
-    <%!
-      private SilniaService silniaService;
-    %><th:each items="${silniaList}" >
+    <th:each items="${silniaList}" >
       <th:li>${silniaList}</th:li>
     </th:each>
   </tr>
