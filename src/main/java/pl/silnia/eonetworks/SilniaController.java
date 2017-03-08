@@ -3,8 +3,15 @@ package pl.silnia.eonetworks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -16,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;
+import pl.silnia.eonetworks.SilniaRepository;
+import pl.silnia.eonetworks.SilniaBD;
 
 @Controller
 public class SilniaController {
@@ -26,11 +35,50 @@ public class SilniaController {
     }
 
     private SilniaService silniaService;
+    private SilniaRepository silniaRepository;
 
     @Autowired
-    public SilniaController(SilniaService silniaService) {
-        this.silniaService = silniaService;
+    public SilniaController(SilniaRepository silniaRepository){this.silniaRepository = silniaRepository;}
+    public SilniaController(SilniaService silniaService) {this.silniaService = silniaService;}
+
+
+ //@GetMapping(path="/add") // Map ONLY GET Requests
+   @RequestMapping(value = "/add", method = RequestMethod.GET)
+
+    public @ResponseBody
+
+    String addNewUser (@RequestParam int number, @RequestParam int score) {
+        // @ResponseBody means the returned String is the response, not a view name
+        // @RequestParam means it is a parameter from the GET or POST request
+
+        SilniaBD n = new SilniaBD();
+        n.setNumber(number);
+        n.setScore(score);
+        silniaRepository.save(n);
+        return "Saved";
     }
+
+//    @RequestMapping(value = "/add", method = RequestMethod.GET)
+//    public @ResponseBody Iterable<SilniaBD> getAllUsers() {
+//        // This returns a JSON or XML with the users
+//        return SilniaRepository.findAll();
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
