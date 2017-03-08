@@ -6,20 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.thymeleaf.TemplateEngine;
-import org.thymeleaf.context.WebContext;
-
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.List;
@@ -46,7 +35,6 @@ public class SilniaController {
    @RequestMapping(value = "/add", method = RequestMethod.GET)
 
     public @ResponseBody
-
     String addNewUser (@RequestParam int number, @RequestParam int score) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
@@ -58,28 +46,11 @@ public class SilniaController {
         return "Saved";
     }
 
-//    @RequestMapping(value = "/add", method = RequestMethod.GET)
-//    public @ResponseBody Iterable<SilniaBD> getAllUsers() {
-//        // This returns a JSON or XML with the users
-//        return SilniaRepository.findAll();
-//    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public @ResponseBody Iterable<SilniaBD> getAllUsers() {
+        // This returns a JSON or XML with the users
+        return silniaRepository.findAll();
+    }
 
 
     @RequestMapping(value = "silnia.s", method = RequestMethod.GET)
