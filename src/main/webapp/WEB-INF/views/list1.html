@@ -1,0 +1,44 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8"/>
+
+An example bean configuration:
+<bean id="templateResolver"
+      class="org.thymeleaf.templateresolver.ServletContextTemplateResolver">
+    <property name="prefix" value="/WEB-INF/templates/" />
+    <property name="suffix" value=".html" />
+    <property name="templateMode" value="HTML5" />
+</bean>
+
+<bean id="templateEngine"
+      class="org.thymeleaf.spring4.SpringTemplateEngine">
+    <property name="templateResolver" ref="templateResolver" />
+</bean>
+
+
+<html lang="en"/>
+<head>
+    <meta charset="UTF-8"/>
+    <title>tytul1</title>
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+<p th:text="#{msg.welcome}">Welcome everyone!</p>
+
+
+<li th:each="book : ${books}" th:text="${book.title}">En las Orillas del Sar</li>
+<form th:action="@{/createOrder}">
+<input type="button" th:value="#{form.submit}" />
+</form>
+</body>
+</html>

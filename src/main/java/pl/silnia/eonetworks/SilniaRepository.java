@@ -6,4 +6,6 @@ import pl.silnia.eonetworks.SilniaBD;
 
 public interface SilniaRepository extends CrudRepository<SilniaBD, Long> {
 
+    public SilniaBD findByNumber(Integer number);
+
 }

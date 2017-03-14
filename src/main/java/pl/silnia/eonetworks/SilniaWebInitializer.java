@@ -9,8 +9,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-public class TodoWebInitializer implements WebApplicationInitializer {
+public class SilniaWebInitializer implements WebApplicationInitializer {
+
     @Override
+
     public void onStartup(ServletContext servletContext) throws ServletException {
         registerDispatcherServlet(servletContext);
     }
